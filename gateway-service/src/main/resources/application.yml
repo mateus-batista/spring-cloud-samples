@@ -1,15 +1,19 @@
 spring:
   application:
-    name: zuul-gateway
-
+    name: gateway-service
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+      - id: greeting
+        uri: lb://greeting
+        predicates:
+        - Path=/greeting/**
+      
 server:
   port: 8080
-
-zuul:
-  routes:
-    greeting:
-      path: /greeting/**
-      serviceId: greeting
 
 eureka:
   client:
