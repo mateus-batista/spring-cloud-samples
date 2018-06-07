@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: zuul-gateway
+
+server:
+  port: 8080
+
+zuul:
+  routes:
+    greeting:
+      path: /greeting/**
+      serviceId: greeting
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
