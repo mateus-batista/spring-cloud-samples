@@ -8,7 +8,7 @@ Simple implementations of some of [Spring Cloud] services
 - The [admin-server] brings up an easy way to consult [actuator] services.
 
 # Installation
-This project has no extra external dependencys, you just need to import as a maven project.
+This project has no extra external dependencies, you just need to import as a maven project.
 # Starting
 For now, the project doesn't have a boot script so you need to do it manually.
 The boot order is:
@@ -25,11 +25,11 @@ Greeting service can be called through gateway-service at localport 8080
 ```sh
 curl http://localhost:8080/greeting
 ```
-To see the currently registed services you can navigate in your preferred browser to the address:
+To see the currently registered services you can navigate in your preferred browser to the address:
 ```sh
 http://localhost:8761
 ```
-The admin portal will show you all the info from de exposed actuator services. In this sample they all are exposed with no security. (Never replicate this in a production cenario).
+The admin portal will show you all the info from the exposed actuator services. In this sample they all are exposed with no security. (Never replicate this in a production scenario).
 
 Admin portal has a basic auth system:
 
