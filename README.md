@@ -32,9 +32,9 @@ http://localhost:8761
 The admin portal will show you all the info from de exposed actuator services. In this sample they all are exposed with no security. (Never replicate this in a production cenario).
 
 Admin portal has a basic auth system:
-| user | password |
-| ------ | ------ |
-| user | password |
+|   user    |   password   |
+| --------- | ------------ |
+|   user    |   password   |
 
 In your preferred browser, navigate to:
 ```sh
