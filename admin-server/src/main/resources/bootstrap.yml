@@ -1,6 +1,9 @@
 spring:
   application:
-    name: eureka-service
+    name: admin-server
+  profiles:
+    active:
+      - secure
   cloud:
     config:
       uri: http://localhost:8888

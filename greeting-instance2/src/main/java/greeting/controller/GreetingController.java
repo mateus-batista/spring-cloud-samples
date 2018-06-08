@@ -2,6 +2,7 @@ package greeting.controller;
 
 import java.util.concurrent.atomic.AtomicLong;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,7 +12,9 @@ import greeting.model.Greeting;
 @RestController
 public class GreetingController {
 
-	private static final String template = "Hello, %s!";
+	@Value("${template}")
+	private String template;
+	
 	private final AtomicLong counter = new AtomicLong();
 
 	@RequestMapping("/greeting")
