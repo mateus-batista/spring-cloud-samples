@@ -85,5 +85,6 @@
 		<module>eureka-service</module>
 		<module>gateway-service</module>
 		<module>config-service</module>
+		<module>admin-server</module>
 	</modules>
 </project>
