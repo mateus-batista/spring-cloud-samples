@@ -12,14 +12,13 @@ import greeting.model.Greeting;
 @RestController
 public class GreetingController {
 
-	@Value("${template}")
-	private String template;
+	private static final String TEMPLATE = "Hello, %s!";
 	
 	private final AtomicLong counter = new AtomicLong();
 
 	@RequestMapping("/greeting")
 	public Greeting greeting(@RequestParam(value = "name", defaultValue = "Bridger") String name) {
 		return new Greeting(this.counter.incrementAndGet(),
-				String.format(template, name));
+				String.format(TEMPLATE, name));
 	}
 }

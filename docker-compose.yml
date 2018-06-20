@@ -1,0 +1,52 @@
+version: '3'
+services:
+    config-service:
+        container_name: config-service
+        build:
+            context: ./config-service
+        image: config-service:latest
+        environment:
+            - "SPRING_PROFILES_ACTIVE=docker"
+        networks:
+            - spring-cloud-network
+        logging:
+            driver: json-file
+        volumes:
+            - ./config-repository:/opt/spring-cloud-samples/repository
+    
+    eureka-service:
+        container_name: eureka-service
+        build:
+            context: ./eureka-service
+        image: eureka-service:latest
+        entrypoint: /opt/spring-cloud-samples/bin/eureka-entrypoint.sh
+        ports: 
+            - 8761:8761
+        environment:
+            - "SPRING_CLOUD_CONFIG_URI=http://config-service:8888"        
+        networks:
+            - spring-cloud-network
+        depends_on:
+            - config-service
+        logging:
+            driver: json-file
+
+    greeting-instance1:
+        container_name: greeting-instance1
+        build:
+            context: ./greeting-instance1
+        image: greeting-instance1:latest
+        entrypoint: /opt/spring-cloud-samples/bin/greeting-entrypoint.sh
+        ports:
+            - 8081:8081
+        environment:
+            - "SPRING_CLOUD_CONFIG_URI=http://config-service:8888"      
+        networks:
+            - spring-cloud-network
+        depends_on:
+            - eureka-service
+        logging:
+            driver: json-file
+networks:
+    spring-cloud-network:
+        driver: bridge

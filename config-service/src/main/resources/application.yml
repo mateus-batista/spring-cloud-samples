@@ -1,11 +1,27 @@
 spring:
   application:
     name: config-service
+    
+server:
+  port: 8888
+
+---
+
+spring:
+  profiles: default
   cloud:
     config:
       server:
         git:
           uri: file:../config-repository
-
-server:
-  port: 8888
+ 
+---
+  
+spring:
+  profiles: docker
+  cloud:
+    config:
+      server:
+        git:
+          uri: file:/opt/spring-cloud-samples/repository
+      
