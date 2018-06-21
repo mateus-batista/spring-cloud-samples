@@ -80,8 +80,7 @@
 
 
 	<modules>
-		<module>greeting-instance1</module>
-		<module>greeting-instance2</module>
+		<module>greeting-instance</module>
 		<module>eureka-service</module>
 		<module>gateway-service</module>
 		<module>config-service</module>

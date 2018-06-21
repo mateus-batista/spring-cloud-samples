@@ -5,8 +5,8 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 
-	<artifactId>greeting-instance2</artifactId>
-	<name>greeting-instance2</name>
+	<artifactId>greeting-instance</artifactId>
+	<name>greeting-instance1</name>
 
 	<parent>
 		<groupId>br.ufsc.bridge</groupId>

@@ -5,6 +5,8 @@ services:
         build:
             context: ./config-service
         image: config-service:latest
+        expose:
+            - 8888    
         environment:
             - "SPRING_PROFILES_ACTIVE=docker"
         networks:
@@ -20,8 +22,10 @@ services:
             context: ./eureka-service
         image: eureka-service:latest
         entrypoint: /opt/spring-cloud-samples/bin/eureka-entrypoint.sh
+        expose:
+            - 8761            
         ports: 
-            - 8761:8761
+            - 8761:8761            
         environment:
             - "SPRING_CLOUD_CONFIG_URI=http://config-service:8888"        
         networks:
@@ -31,14 +35,16 @@ services:
         logging:
             driver: json-file
 
-    greeting-instance1:
-        container_name: greeting-instance1
+    greeting-instance:
+        # container_name: greeting-instance
         build:
-            context: ./greeting-instance1
+            context: ./greeting-instance
         image: greeting-instance1:latest
         entrypoint: /opt/spring-cloud-samples/bin/greeting-entrypoint.sh
-        ports:
-            - 8081:8081
+        expose:
+            - 8081            
+        #ports:
+        #    - 8081:8081            
         environment:
             - "SPRING_CLOUD_CONFIG_URI=http://config-service:8888"      
         networks:
@@ -47,6 +53,45 @@ services:
             - eureka-service
         logging:
             driver: json-file
+    
+    gateway-service:
+        container_name: gateway-service
+        build:
+            context: ./gateway-service
+        image: gateway-service:latest
+        entrypoint: /opt/spring-cloud-samples/bin/gateway-entrypoint.sh
+        ports:
+            - 8080:8080
+        expose:
+            - 8080                
+        environment:
+            - "SPRING_CLOUD_CONFIG_URI=http://config-service:8888"      
+        networks:
+            - spring-cloud-network
+        depends_on:
+            - eureka-service
+        logging:
+            driver: json-file
+
+    admin-server:
+        container_name: admin-server
+        build:
+            context: ./admin-server
+        image: admin-server:latest
+        entrypoint: /opt/spring-cloud-samples/bin/admin-entrypoint.sh
+        ports:
+            - 8500:8500
+        expose:
+            - 8500                
+        environment:
+            - "SPRING_CLOUD_CONFIG_URI=http://config-service:8888"      
+        networks:
+            - spring-cloud-network
+        depends_on:
+            - eureka-service
+        logging:
+            driver: json-file
+
 networks:
     spring-cloud-network:
         driver: bridge

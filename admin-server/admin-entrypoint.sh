@@ -5,4 +5,4 @@ while ! nc -z eureka-service 8761 ; do
     sleep 2
 done
 
-java -jar -Dspring.profiles.active=docker /opt/spring-cloud-samples/lib/greeting-instance1-1.0.0.RELEASE.jar
+java -jar -Dspring.profiles.active=docker,secure /opt/spring-cloud-samples/lib/admin-server-1.0.0.RELEASE.jar

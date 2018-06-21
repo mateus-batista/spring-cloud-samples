@@ -3,6 +3,7 @@ spring:
     name: admin-server
   profiles:
     active:
+      - default
       - secure
   cloud:
     config:

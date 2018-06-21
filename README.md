@@ -8,16 +8,40 @@ Simple implementations of some of [Spring Cloud] services
 - The [admin-server] brings up an easy way to consult [actuator] services.
 
 # Installation
-This project has no extra external dependencies, you just need to import as a maven project.
+This project has no extra external dependencies, you just need to import as a maven project and then run in the root project:
+
+```sh 
+mvn clean install
+```
 # Starting
-For now, the project doesn't have a boot script so you need to do it manually.
+
+To start the project, you have two options:
+
+## Manually
+
 The boot order is:
 1. config-service
 2. eureka-service
-3. greeting-instance1
-4. greeting-instance2
-5. gateway-service
-6. admin-service
+3. greeting-instance
+4. gateway-service
+5. admin-service
+
+
+## With [Docker Compose] 
+
+In the first run and after a project re-build, use:
+
+```
+docker-compose up --build --force-recreate --scale greeting-instance=3
+```
+
+After that, you can just use:
+
+```
+docker-compose up --scale greeting-instance=3
+```
+
+The `--scale greeting-instance=3` option will start tree instances of that service, you can choose the number you want.
 
 # Services and panels
 
@@ -50,3 +74,4 @@ More services, tests, and examples will come.
 [gateway-service]: <https://cloud.spring.io/spring-cloud-gateway/>
 [admin-server]: <https://github.com/codecentric/spring-boot-admin>
 [actuator]: <https://spring.io/guides/gs/actuator-service/>
+[Docker Compose]: <https://docs.docker.com/compose/install/>
