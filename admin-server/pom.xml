@@ -7,7 +7,7 @@
 
 	<parent>
 		<groupId>br.ufsc.bridge</groupId>
-		<artifactId>spring-cloud-netflix-samples</artifactId>
+		<artifactId>spring-cloud-samples</artifactId>
 		<version>${revision}</version>
 	</parent>
 

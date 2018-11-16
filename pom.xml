@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>br.ufsc.bridge</groupId>
-	<artifactId>spring-cloud-netflix-samples</artifactId>
+	<artifactId>spring-cloud-samples</artifactId>
 	<version>${revision}</version>
 	<packaging>pom</packaging>
 
-	<name>spring-cloud-netflix-samples</name>
+	<name>spring-cloud-samples</name>
 
 	<parent>
 		<groupId>org.springframework.boot</groupId>
