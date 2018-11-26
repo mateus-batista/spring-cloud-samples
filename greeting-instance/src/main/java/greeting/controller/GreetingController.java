@@ -11,7 +11,7 @@ import greeting.model.Greeting;
 @RestController
 public class GreetingController {
 
-	private static final String TEMPLATE = "Hello, %s!";
+	private static final String TEMPLATE = "Hi, %s!";
 	
 	private final AtomicLong counter = new AtomicLong();
 
