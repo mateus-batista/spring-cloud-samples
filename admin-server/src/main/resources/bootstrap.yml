@@ -3,8 +3,10 @@ spring:
     name: admin-server
   profiles:
     active:
-      - default
       - secure
   cloud:
     config:
       uri: http://localhost:8888
+
+server:
+  port: 8500

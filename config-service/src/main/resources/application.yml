@@ -13,7 +13,7 @@ spring:
     config:
       server:
         git:
-          uri: file:../config-repository
+          uri: https://github.com/mateus-batista/config-repo.git
  
 ---
   
@@ -23,5 +23,5 @@ spring:
     config:
       server:
         git:
-          uri: file:/opt/spring-cloud-samples/repository
+          uri: https://github.com/mateus-batista/config-repo.git
       
