@@ -29,6 +29,18 @@ The boot order is:
 
 ## With [Docker Compose] 
 
+First, initialize the [Swarm] mode:
+
+```
+docker swarm init
+```
+
+Then create the overlay network:
+
+```
+docker network create -d overlay spring-cloud-network
+```
+
 In the first run and after a project re-build, use:
 
 ```
@@ -75,3 +87,4 @@ More services, tests, and examples will come.
 [admin-server]: <https://github.com/codecentric/spring-boot-admin>
 [actuator]: <https://spring.io/guides/gs/actuator-service/>
 [Docker Compose]: <https://docs.docker.com/compose/install/>
+[Swarm]: <https://docs.docker.com/engine/swarm/>
