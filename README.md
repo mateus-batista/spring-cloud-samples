@@ -71,7 +71,7 @@ Admin portal has a basic auth system:
 
 |   user    |   password   |
 | --------- | ------------ |
-|   user    |   password   |
+|   admin   |    secret    |
 
 In your preferred browser, navigate to:
 ```sh

@@ -4,3 +4,8 @@ spring:
   cloud:
     config:
       uri: http://localhost:8888
+      username: config_client
+      password: secret
+
+server:
+  port: 8761
