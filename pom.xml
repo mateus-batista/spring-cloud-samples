@@ -89,6 +89,6 @@
         <module>gateway-service</module>
         <module>config-service</module>
         <module>admin-server</module>
-        <module>security-service</module>
+        <!-- <module>security-service</module> -->
     </modules>
 </project>

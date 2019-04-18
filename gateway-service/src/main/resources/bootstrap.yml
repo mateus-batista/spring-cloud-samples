@@ -6,7 +6,3 @@ spring:
       uri: http://localhost:8888
       username: config_client
       password: secret
-  security:
-    user:
-      name: admin
-      password: secret

@@ -61,10 +61,24 @@ Greeting service can be called through gateway-service at localport 8080
 ```sh
 curl http://localhost:8080/greeting
 ```
+
+Greeting service has a basic auth system:
+
+|   user           |   password   |
+| -----------------| ------------ |
+|   admin   |    secret    |
+
+
 To see the currently registered services you can navigate in your preferred browser to the address:
 ```sh
 http://localhost:8761
 ```
+Eureka portal has a basic auth system:
+
+|   user           |   password   |
+| -----------------| ------------ |
+|   eureka_admin   |    secret    |
+
 The admin portal will show you all the info from the exposed actuator services. In this sample they all are exposed with no security. (Never replicate this in a production scenario).
 
 Admin portal has a basic auth system:
