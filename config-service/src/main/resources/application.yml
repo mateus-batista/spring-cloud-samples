@@ -6,6 +6,10 @@ spring:
       server:
         git:
           uri: https://github.com/mateus-batista/config-repo.git
+  security:
+    user:
+      name: config_client
+      password: secret
 
 server:
   port: 8888
