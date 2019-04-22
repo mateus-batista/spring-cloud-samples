@@ -4,7 +4,7 @@ Simple implementations of some of [Spring Cloud] services
 
 - Each service calls [config-service] to get their configuration files.
 - Each service register itself with [Netflix] Eureka.
-- The [gateway-service] adds proxy and load balancing to greeting services registered with Eureka.
+- The [gateway-service] adds proxy, load balancing and SSO to greeting services registered with Eureka.
 - The [admin-server] brings up an easy way to consult [actuator] services.
 
 # Installation
@@ -59,14 +59,10 @@ The `--scale greeting-instance=3` option will start tree instances of that servi
 
 Greeting service can be called through gateway-service at localport 8080
 ```sh
-curl http://localhost:8080/greeting
+curl http://localhost:8080/greeting-instance/greeting
 ```
 
-Greeting service has a basic auth system:
-
-|   user           |   password   |
-| -----------------| ------------ |
-|   admin   |    secret    |
+In the first access you'll be redirected to a GitHub Login Page, where you'll need to provide yours credentials to access the endpoint.
 
 
 To see the currently registered services you can navigate in your preferred browser to the address:
@@ -91,13 +87,16 @@ In your preferred browser, navigate to:
 ```sh
 http://localhost:8500
 ```
+
+Actuator services for greeting-instance and gateway-service are not accessible for the moment.
+
 All the services here are simple examples of its on projects, configured to work together.
 More services, tests, and examples will come.
 
 [config-service]: <https://cloud.spring.io/spring-cloud-config/> 
 [Netflix]: <https://cloud.spring.io/spring-cloud-netflix/>
 [Spring Cloud]: <http://projects.spring.io/spring-cloud/>
-[gateway-service]: <https://cloud.spring.io/spring-cloud-gateway/>
+[gateway-service]: <https://cloud.spring.io/spring-cloud-netflix/multi/multi__router_and_filter_zuul.html/>
 [admin-server]: <https://github.com/codecentric/spring-boot-admin>
 [actuator]: <https://spring.io/guides/gs/actuator-service/>
 [Docker Compose]: <https://docs.docker.com/compose/install/>
