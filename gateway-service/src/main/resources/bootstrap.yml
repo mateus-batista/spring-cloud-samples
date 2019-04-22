@@ -1,8 +1,21 @@
 spring:
   application:
     name: gateway-service
-  cloud:
-    config:
-      uri: http://localhost:8888
-      username: config_client
-      password: secret
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://eureka_admin:secret@localhost:8761/eureka/
+    fetch-registry: true
+    register-with-eureka: true
+  instance:
+    health-check-url-path: /actuator/health
+
+zuul:
+  routes:
+    greeting:
+      path: /greeting/**
+      serviceId: greeting-instance
+
+server:
+  port: 8080
