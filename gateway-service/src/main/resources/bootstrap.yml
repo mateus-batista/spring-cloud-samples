@@ -16,6 +16,8 @@ zuul:
     greeting:
       path: /greeting/**
       serviceId: greeting-instance
+  host:
+    connect-timeout-millis: 4000
 
 security:
   oauth2:
